@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Từ vựng từ đề- Lớp Anh thầy Kết</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+ header {
+  background-color: #ffd6ba;
+  padding: 15px 20px;
+  font-weight: bold;
+  color: #7a4e3e;
+  display: flex;
+  flex-wrap: wrap;       
+  align-items: center;
+  justify-content: space-between;  /* Left luôn bên trái, center căn giữa */
+  gap: 15px;
+}
+
+/* Left: icon + home text */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;          /* không bị co lại */
+}
+
+.header-left a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  color: #7a4e3e;
+  text-decoration: none;
+}
+
+.header-left a i {
+  font-size: 28px;
+}
+
+/* Center title */
+header {
+  position: relative;
+}
+
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 32px;
+  margin: 0;
+  white-space: nowrap;
+}
+/* ===== TOP SELECT ===== */
+.top-select {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px 40px;
+}
+
+select {
+  padding: 8px 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 2px solid #a0e7e5;
+  background-color: #e3fdfd;
+}
+
+
+
+/* MEDIA QUERY cho điện thoại */
+@media (max-width: 480px) {
+
+    .header-center {
+    flex-basis: 100%;
+    order: 2;
+    text-align: center;
+    position: static;
+    transform: none;
+    margin-top: 8px;
+  }
+
+  .header-left {
+    order: 1;
+  }
+}
+
+  header {
+    padding: 10px 15px;
+  }
+  .header-left a {
+    font-size: 18px;
+  }
+  .header-left a i {
+    font-size: 20px;
+  }
+  .header-center {
+    font-size: 22px;
+  }
+}
+
+
+  .top-select {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 40px;
+  }
+
+  select {
+    padding: 8px 14px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: 2px solid #a0e7e5;
+    background-color: #e3fdfd;
+  }
+
+  /* Word list */
+  .word-list {
+    width: 85%;
+    margin: 20px auto;
+    background-color: #E0FBE2;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left;
+    font-size: 22px;
+  }
+
+.word-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  border-bottom: 1px dashed #ffb3ba;
+  transition: background-color .15s ease-in-out;
+}
+.word-row:last-child { border-bottom: none; }
+
+/* Hover đổi màu */
+.word-row:hover {
+  background-color: #fffacd; /* xanh nhạt dễ thấy */
+  cursor: pointer;
+}
+
+  /* Ôn tập */
+  .review-box {
+    margin: 40px auto;
+    width: 70%;
+    background-color: #ffe5ec;
+    padding: 25px;
+    font-weight: bold;
+    color: #607274;
+    font-size: 26px;
+    border-radius: 12px;
+    position: relative;
+  }
+  .review-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+.review-buttons button {
+  background-color: #a0e7e5;
+  border: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.review-buttons button:hover {
+  background-color: #ffb3ba;
+}
+
+
+  /* Bài tập */
+  .exercise {
+    width: 80%;
+    margin: 0 auto 30px auto;
+    font-size: 22px;
+    text-align: left;
+  }
+
+  .exercise input {
+    width: 220px;
+    font-size: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 6px;
+  }
+
+  .exercise button {
+    margin-left: 10px;
+    padding: 6px 12px;
+    font-size: 18px;
+    background-color: #a0e7e5;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .exercise button:hover {
+    background-color: #ffb3ba;
+  }
+
+  .result {
+    font-weight: bold;
+    color: #C5705D;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  footer {
+    font-size: 22px;
+    margin-top: 40px;
+    padding: 20px;
+    color: #7a4e3e;
+    background-color: #fff0e1;
+  }
+
+  .confetti {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: red;
+    opacity: .9;
+    animation: pop .9s ease-out forwards;
+  }
+  @keyframes pop {
+    0% { transform: translate(0,0) scale(1); opacity:1;}
+    50% {transform: translate(calc(var(--x)*.5),calc(var(--y)*.4)) scale(1.1);opacity:1;}
+    100% {transform: translate(var(--x),var(--y)) scale(.5);opacity:0;}
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-left">
+    <a href="https://ketng91.github.io/TuvungTHPTQG-homepage/">
+      <i class="fa-solid fa-house"></i> Lớp Anh thầy Kết
+    </a>
+  </div>
+  <div class="header-center">
+    Từ vựng từ đề
+  </div>
+</header>
+
+<!-- Bộ chọn -->
+<div class="top-select">
+  <select id="wordList">
+    <option value="1">Từ vựng từ đề - 1</option>
+    <option value="2">Từ vựng từ đề - 2</option>
+    <option value="3">Từ vựng từ đề - 3</option>
+    <option value="4">Từ vựng từ đề - 4</option>
+    <option value="5">Từ vựng từ đề - 5</option>
+    <option value="6">Từ vựng từ đề - 6</option>
+    <option value="7">Từ vựng từ đề - 7</option>
+    <option value="8">Từ vựng từ đề - 8</option>
+    <option value="9">Từ vựng từ đề - 9</option>
+    <option value="10">Từ vựng từ đề - 10</option>
+
+
+
+
+
+
+
+
+  </select>
+</div>
+
+
+
+<script>
+// Bắt sự kiện Enter cho tất cả các ô input trong bài tập
+document.addEventListener("DOMContentLoaded", function() {
+  const exerciseInputs = document.querySelectorAll(".exercise input");
+
+  exerciseInputs.forEach(input => {
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {      // Kiểm tra nếu nhấn Enter
+        e.preventDefault();          // Ngăn việc xuống dòng mặc định
+        const checkBtn = this.nextElementSibling; // giả định nút Check ngay sau input
+        if (checkBtn && checkBtn.tagName === "BUTTON") {
+          checkBtn.click();         // kích hoạt nút Check
+        }
+      }
+    });
+  });
+});
+</script>
+
+
+
+<!-- Danh sách từ vựng -->
+<div class="word-list" id="wordContainer"></div>
+
+<!-- Ôn tập -->
+<div class="review-box">
+<div id="progressCounter"
+     style="position:absolute; top:12px; right:18px;
+            font-size:18px; color:#7a4e3e;">
+  Đã biết 0 / 0
+</div>
+
+
+  <div id="vietWord">Chọn Bộ từ vựng để bắt đầu</div>
+    
+  <!-- Hiển thị đáp án -->
+<div id="answer" style="font-size:22px;color:#7a4e3e; margin-top:15px; text-align:center; min-height:40px;"></div>
+   
+  <!-- Nút bấm -->
+  <div class="review-buttons" style="margin-top:20px;">
+    <button onclick="know()">Đã biết</button>
+    <button onclick="dontKnow()">Chưa biết</button>
+    <button onclick="nextWord()">Tiếp theo</button>
+  </div>
+
+</div>
+
+<!-- Bài tập -->
+<div class="exercise" id="exercise"></div>
+
+<footer>Chúc mừng bạn đã hoàn thành bài học!</footer>
+<script>
+const selectEl = document.getElementById("wordList");
+
+function sortOptionsByNumber() {
+  const opts = Array.from(selectEl.options);
+
+  opts.sort((a, b) => {
+    return Number(a.value) - Number(b.value);
+  });
+
+  selectEl.innerHTML = "";
+  opts.forEach(o => selectEl.appendChild(o));
+}
+
+// sort ngay khi load
+sortOptionsByNumber();
+
+// sort lại khi mở dropdown
+selectEl.addEventListener("mousedown", sortOptionsByNumber);
+selectEl.addEventListener("touchstart", sortOptionsByNumber);
+</script>
+
+<script>
+/********** DATA **********/
+const data = {
+  1: [
+{ en: "shape (v/n) /ʃeɪp/", vn: "định hình, hình dáng", tick: false },
+  { en: "technological advancement /ˌteknəˈlɒdʒɪkl ədˈvɑːnsmənt/", vn: "sự tiến bộ công nghệ", tick: false },
+  { en: "concept /ˈkɒnsept/", vn: "khái niệm", tick: false },
+  { en: "career path /kəˈrɪə pɑːθ/", vn: "con đường sự nghiệp", tick: false },
+  { en: "evolve /ɪˈvɒlv/", vn: "tiến hóa, phát triển dần", tick: false },
+  { en: "dramatic /drəˈmætɪk/", vn: "đáng kể, kịch tính", tick: false },
+  { en: "industry /ˈɪndəstri/", vn: "ngành công nghiệp", tick: false },
+  { en: "profession /prəˈfeʃn/", vn: "nghề nghiệp (có chuyên môn)", tick: false },
+  { en: "characterize /ˈkærəktəraɪz/", vn: "đặc trưng hóa", tick: false },
+  { en: "multiple /ˈmʌltɪpl/", vn: "nhiều, phức hợp", tick: false },
+  { en: "shift /ʃɪft/", vn: "sự thay đổi, ca làm việc", tick: false },
+  { en: "driven /ˈdrɪvn/", vn: "được thúc đẩy bởi", tick: false },
+  { en: "globalization /ˌɡləʊbəlaɪˈzeɪʃn/", vn: "toàn cầu hóa", tick: false },
+  { en: "gig economy /ɡɪɡ ɪˈkɒnəmi/", vn: "nền kinh tế tự do", tick: false },
+  { en: "automation /ˌɔːtəˈmeɪʃn/", vn: "sự tự động hóa", tick: false },
+  { en: "transition /trænˈzɪʃn/", vn: "sự chuyển đổi", tick: false },
+  { en: "analysis /əˈnæləsɪs/", vn: "sự phân tích", tick: false },
+  { en: "consultant /kənˈsʌltənt/", vn: "người tư vấn", tick: false },
+  { en: "key /kiː/", vn: "then chốt, chìa khóa", tick: false },
+  { en: "navigate /ˈnævɪɡeɪt/", vn: "định hướng, điều hướng", tick: false },
+  { en: "deal with /diːl wɪð/", vn: "đối phó, giải quyết", tick: false },
+  { en: "workforce /ˈwɜːkfɔːs/", vn: "lực lượng lao động", tick: false },
+  { en: "adaptability /əˌdæptəˈbɪləti/", vn: "khả năng thích nghi", tick: false },
+  { en: "according to /əˈkɔːdɪŋ tu/", vn: "theo như", tick: false },
+  { en: "significant /sɪɡˈnɪfɪkənt/", vn: "đáng kể, quan trọng", tick: false },
+  { en: "artificial intelligence /ˌɑːtɪfɪʃl ɪnˈtelɪdʒəns/", vn: "trí tuệ nhân tạo", tick: false },
+  { en: "give rise to /ɡɪv raɪz tu/", vn: "gây ra, làm nảy sinh", tick: false },
+  { en: "proactive /ˌprəʊˈæktɪv/", vn: "chủ động", tick: false },
+  { en: "pursue /pəˈsjuː/", vn: "theo đuổi", tick: false },
+  { en: "emerge /ɪˈmɜːdʒ/", vn: "nổi lên, xuất hiện", tick: false },
+  { en: "emphasis /ˈemfəsɪs/", vn: "sự nhấn mạnh", tick: false },
+  { en: "prioritize /praɪˈɒrətaɪz/", vn: "ưu tiên", tick: false },
+  { en: "contribute to /kənˈtrɪbjuːt tu/", vn: "đóng góp vào", tick: false },
+  { en: "renewable energy /rɪˈnjuːəbl ˈenədʒi/", vn: "năng lượng tái tạo", tick: false },
+  { en: "gain popularity /ɡeɪn ˌpɒpjuˈlærəti/", vn: "trở nên phổ biến", tick: false },
+  { en: "sacrifice /ˈsækrɪfaɪs/", vn: "hy sinh", tick: false },
+  { en: "unparalleled /ʌnˈpærəleld/", vn: "vô song, không gì bằng", tick: false },
+  { en: "attitude /ˈætɪtjuːd/", vn: "thái độ", tick: false },
+  { en: "flexible /ˈfleksəbl/", vn: "linh hoạt", tick: false },
+  { en: "urbanization /ˌɜːbənaɪˈzeɪʃn/", vn: "sự đô thị hóa", tick: false },
+  { en: "urbanized area /ˈɜːbənaɪzd ˈeəriə/", vn: "khu vực đô thị hóa", tick: false },
+  { en: "movement /ˈmuːvmənt/", vn: "sự di chuyển, phong trào", tick: false },
+  { en: "rural /ˈrʊərəl/", vn: "thuộc nông thôn", tick: false },
+  { en: "urban /ˈɜːbən/", vn: "thuộc thành thị", tick: false },
+  { en: "global /ˈɡləʊbl/", vn: "toàn cầu", tick: false },
+  { en: "primary /ˈpraɪməri/", vn: "chính, chủ yếu", tick: false },
+  { en: "offer /ˈɒfə(r)/", vn: "cung cấp, đề nghị", tick: false },
+  { en: "wage /weɪdʒ/", vn: "tiền công", tick: false },
+  { en: "potential /pəˈtenʃl/", vn: "tiềm năng", tick: false },
+  { en: "region /ˈriːdʒən/", vn: "vùng, miền", tick: false },
+  { en: "essential /ɪˈsenʃl/", vn: "thiết yếu", tick: false },
+  { en: "typically /ˈtɪpɪkli/", vn: "điển hình, thông thường", tick: false },
+  { en: "factor /ˈfæktə(r)/", vn: "nhân tố", tick: false },
+  { en: "appeal to /əˈpiːl tu/", vn: "thu hút", tick: false },
+  { en: "quality of life /ˈkwɒləti əv laɪf/", vn: "chất lượng cuộc sống", tick: false },
+  { en: "major /ˈmeɪdʒə(r)/", vn: "chính, quan trọng", tick: false },
+  { en: "driver /ˈdraɪvə(r)/", vn: "động lực thúc đẩy", tick: false },
+  { en: "infrastructure /ˈɪnfrəstrʌktʃə(r)/", vn: "cơ sở hạ tầng", tick: false },
+  { en: "advanced /ədˈvɑːnst/", vn: "tiên tiến", tick: false },
+  { en: "convenient /kənˈviːniənt/", vn: "tiện lợi", tick: false },
+  { en: "efficient /ɪˈfɪʃnt/", vn: "hiệu quả", tick: false },
+  { en: "resident /ˈrezɪdənt/", vn: "cư dân", tick: false },
+  { en: "expansion /ɪkˈspænʃn/", vn: "sự mở rộng", tick: false },
+  { en: "reinforce /ˌriːɪnˈfɔːs/", vn: "củng cố, tăng cường", tick: false },
+  { en: "availability /əˌveɪləˈbɪləti/", vn: "sự có sẵn", tick: false },
+  { en: "desirable /dɪˈzaɪərəbl/", vn: "đáng khao khát", tick: false },
+  { en: "individual /ˌɪndɪˈvɪdʒuəl/", vn: "cá nhân", tick: false },
+  { en: "boost /buːst/", vn: "thúc đẩy, làm tăng", tick: false },
+  { en: "present /prɪˈzent/", vn: "trình bày, nảy sinh", tick: false },
+  { en: "overcrowding /ˌəʊvəˈkraʊdɪŋ/", vn: "tình trạng quá tải dân số", tick: false },
+  { en: "traffic congestion /ˈtræfɪk kənˈdʒestʃən/", vn: "tắc nghẽn giao thông", tick: false },
+  { en: "strain /streɪn/", vn: "sự căng thẳng, áp lực", tick: false },
+  { en: "encroach /ɪnˈkrəʊtʃ/", vn: "xâm lấn", tick: false },
+  { en: "lead to /liːd tu/", vn: "dẫn đến", tick: false },
+  { en: "habitat /ˈhæbɪtæt/", vn: "môi trường sống", tick: false },
+  { en: "destruction /dɪˈstrʌkʃn/", vn: "sự phá hủy", tick: false },
+  { en: "biodiversity /ˌbaɪəʊdaɪˈvɜːsəti/", vn: "đa dạng sinh học", tick: false },
+  { en: "ecosystem /ˈiːkəʊsɪstəm/", vn: "hệ sinh thái", tick: false },
+  { en: "environmental /ɪnˌvaɪrənˈmentl/", vn: "thuộc về môi trường", tick: false },
+  { en: "issue /ˈɪʃuː/", vn: "vấn đề", tick: false },
+  { en: "extend beyond /ɪkˈstend bɪˈjɒnd/", vn: "mở rộng ra ngoài", tick: false },
+  { en: "border /ˈbɔːdə(r)/", vn: "biên giới", tick: false },
+  { en: "balance /ˈbæləns/", vn: "sự cân bằng", tick: false },
+  { en: "sustainable practices /səˈsteɪnəbl ˈpræktɪsɪz/", vn: "các thực hành bền vững", tick: false },
+  { en: "critical /ˈkrɪtɪkl/", vn: "nguy cấp, then chốt", tick: false },
+  { en: "in response /ɪn rɪˈspɒns/", vn: "để đáp lại", tick: false },
+  { en: "adopt /əˈdɒpt/", vn: "áp dụng, nhận nuôi", tick: false },
+  { en: "obstacle /ˈɒbstəkl/", vn: "trở ngại", tick: false },
+  { en: "minimize /ˈmɪnɪmaɪz/", vn: "giảm thiểu", tick: false },
+  { en: "address /əˈdres/", vn: "giải quyết (vấn đề)", tick: false },
+  { en: "downside /ˈdaʊnsaɪd/", vn: "mặt trái, bất lợi", tick: false }
+  ],
+  2: [
+{ en: "adopt /əˈdɒpt/", vn: "áp dụng, nhận nuôi", tick: false },
+  { en: "grab attention /ɡræb əˈtenʃn/", vn: "thu hút sự chú ý", tick: false },
+  { en: "immediately /ɪˈmiːdiətli/", vn: "ngay lập tức", tick: false },
+  { en: "ridiculous /rɪˈdɪkjələs/", vn: "nực cười, lố bịch", tick: false },
+  { en: "sensational headlines /senˈseɪʃənl ˈhedlaɪnz/", vn: "những tiêu đề giật gân", tick: false },
+  { en: "clickbait /ˈklɪkbeɪt/", vn: "mồi nhử nhấp chuột", tick: false },
+  { en: "fake /feɪk/", vn: "giả, giả mạo", tick: false },
+  { en: "false /fɔːls/", vn: "sai, không đúng", tick: false },
+  { en: "mislead /ˌmɪsˈliːd/", vn: "làm cho lạc đường, đánh lừa", tick: false },
+  { en: "misleading /ˌmɪsˈliːdɪŋ/", vn: "gây hiểu lầm", tick: false },
+  { en: "trick /trɪk/", vn: "lừa gạt, mẹo", tick: false },
+  { en: "spread /spred/", vn: "lan truyền", tick: false },
+  { en: "than ever /ðən ˈevə(r)/", vn: "hơn bao giờ hết", tick: false },
+  { en: "digital world /ˈdɪdʒɪtl wɜːld/", vn: "thế giới kỹ thuật số", tick: false },
+  { en: "political /pəˈlɪtɪkl/", vn: "thuộc về chính trị", tick: false },
+  { en: "unfortunately /ʌnˈfɔːtʃənətli/", vn: "không may thay", tick: false },
+  { en: "social media /ˌsəʊʃl ˈmiːdiə/", vn: "mạng xã hội", tick: false },
+  { en: "powerful /ˈpaʊəfl/", vn: "quyền lực, mạnh mẽ", tick: false },
+  { en: "unlike /ˌʌnˈlaɪk/", vn: "không giống như", tick: false },
+  { en: "platform /ˈplætfɔːm/", vn: "nền tảng", tick: false },
+  { en: "post /pəʊst/", vn: "đăng bài", tick: false },
+  { en: "entirely /ɪnˈtaɪəli/", vn: "hoàn toàn", tick: false },
+  { en: "make up /meɪk ʌp/", vn: "dựng chuyện, trang điểm", tick: false },
+  { en: "entertain /ˌentəˈteɪn/", vn: "giải trí", tick: false },
+  { en: "confusion /kənˈfjuːʒn/", vn: "sự bối rối, nhầm lẫn", tick: false },
+  { en: "context /ˈkɒntekst/", vn: "ngữ cảnh, bối cảnh", tick: false },
+  { en: "content /ˈkɒntent/", vn: "nội dung", tick: false },
+  { en: "curious /ˈkjʊəriəs/", vn: "tò mò", tick: false },
+  { en: "encourage /ɪnˈkʌrɪdʒ/", vn: "khuyến khích", tick: false },
+  { en: "make money /meɪk ˈmʌni/", vn: "kiếm tiền", tick: false },
+  { en: "tell the truth /tel ðə truːθ/", vn: "nói sự thật", tick: false },
+  { en: "serious /ˈsɪəriəs/", vn: "nghiêm trọng, nghiêm túc", tick: false },
+  { en: "influence /ˈɪnfluəns/", vn: "ảnh hưởng", tick: false },
+  { en: "election /ɪˈlekʃn/", vn: "cuộc bầu cử", tick: false },
+  { en: "candidate /ˈkændɪdət/", vn: "ứng cử viên", tick: false },
+  { en: "public health /ˌpʌblɪk ˈhelθ/", vn: "sức khỏe cộng đồng", tick: false },
+  { en: "vaccine /ˈvæksiːn/", vn: "vắc-xin", tick: false },
+  { en: "fear /fɪə(r)/", vn: "nỗi sợ hãi", tick: false },
+  { en: "mistrust /ˌmɪsˈtrʌst/", vn: "sự ngờ vực", tick: false },
+  { en: "in some cases /ɪn sʌm ˈkeɪsɪz/", vn: "trong một số trường hợp", tick: false },
+  { en: "rumor /ˈruːmə(r)/", vn: "tin đồn", tick: false },
+  { en: "lead to /liːd tu/", vn: "dẫn đến", tick: false },
+  { en: "violence /ˈvaɪələns/", vn: "bạo lực", tick: false },
+  { en: "panic /ˈpænɪk/", vn: "sự hoảng loạn", tick: false },
+  { en: "combat /ˈkɒmbæt/", vn: "chiến đấu, ngăn chặn", tick: false },
+  { en: "process /ˈprəʊses/", vn: "quá trình", tick: false },
+  { en: "ability /əˈbɪləti/", vn: "khả năng", tick: false },
+  { en: "evaluate /ɪˈvæljueɪt/", vn: "đánh giá", tick: false },
+  { en: "trustworthy /ˈtrʌstwɜːði/", vn: "đáng tin cậy", tick: false },
+  { en: "reliable /rɪˈlaɪəbl/", vn: "đáng tin", tick: false },
+  { en: "fact-checking /fækt ˈtʃekɪŋ/", vn: "kiểm chứng sự thật", tick: false },
+  { en: "confirm /kənˈfɜːm/", vn: "xác nhận", tick: false },
+  { en: "decade /ˈdekeɪd/", vn: "thập kỷ", tick: false },
+  { en: "minimalism /ˈmɪnɪməlɪzəm/", vn: "chủ nghĩa tối giản", tick: false },
+  { en: "evolve /ɪˈvɒlv/", vn: "tiến hóa, phát triển", tick: false },
+  { en: "niche /niːʃ/", vn: "thị trường ngách, vị trí thích hợp", tick: false },
+  { en: "philosophy /fəˈlɒsəfi/", vn: "triết học", tick: false },
+  { en: "movement /ˈmuːvmənt/", vn: "phong trào", tick: false },
+  { en: "reshape /ˌriːˈʃeɪp/", vn: "định hình lại", tick: false },
+  { en: "define /dɪˈfaɪ/", vn: "định nghĩa", tick: false },
+  { en: "center on /ˈsentər ɒn/", vn: "tập trung vào", tick: false },
+  { en: "simplicity /sɪmˈplɪsəti/", vn: "sự đơn giản", tick: false },
+  { en: "intentional /ɪnˈtenʃənl/", vn: "có ý định, cố ý", tick: false },
+  { en: "consumption /kənˈsʌmpʃn/", vn: "sự tiêu thụ", tick: false },
+  { en: "mindful /ˈmaɪndfl/", vn: "tâm niệm, chú tâm", tick: false },
+  { en: "challenge /ˈtʃælɪndʒ/", vn: "thử thách", tick: false },
+  { en: "deeply rooted /ˈdiːpli ˈruːtɪd/", vn: "ăn sâu bám rễ", tick: false },
+  { en: "personal worth /ˈpɜːsənl wɜːθ/", vn: "giá trị bản thân", tick: false },
+  { en: "material possessions /məˈtɪəriəl pəˈzeʃnz/", vn: "tài sản vật chất", tick: false },
+  { en: "advocate /ˈædvəkeɪt/", vn: "ủng hộ", tick: false },
+  { en: "own /əʊn/", vn: "sở hữu", tick: false },
+  { en: "prioritize /praɪˈɒrətaɪz/", vn: "ưu tiên", tick: false },
+  { en: "material goods /məˈtɪəriəl ɡʊdz/", vn: "hàng hóa vật chất", tick: false },
+  { en: "shift /ʃɪft/", vn: "sự thay đổi", tick: false },
+  { en: "reflect /rɪˈflekt/", vn: "phản chiếu, phản ánh", tick: false },
+  { en: "dissatisfaction /ˌdɪsˌsætɪsˈfækʃn/", vn: "sự không hài lòng", tick: false },
+  { en: "consumerism /kənˈsjuːmərɪzəm/", vn: "chủ nghĩa tiêu dùng", tick: false },
+  { en: "commercialisation /kəˌmɜːʃəlaɪˈzeɪʃn/", vn: "thương mại hóa", tick: false },
+  { en: "overwhelmed /ˌəʊvəˈwelmd/", vn: "bị choáng ngợp", tick: false },
+  { en: "abundance /əˈbʌndəns/", vn: "sự phong phú, dư thừa", tick: false },
+  { en: "appeal /əˈpiːl/", vn: "sự lôi cuốn, kháng cáo", tick: false },
+  { en: "peace of mind /piːs əv maɪnd/", vn: "sự bình an trong tâm hồn", tick: false },
+  { en: "offer /ˈɒfə(r)/", vn: "cung cấp, đề nghị", tick: false },
+  { en: "well-organised /wel ˈɔːɡənaɪzd/", vn: "được tổ chức tốt", tick: false },
+  { en: "stay calm /steɪ kɑːm/", vn: "giữ bình tĩnh", tick: false },
+  { en: "stay focused /steɪ ˈfəʊkəst/", vn: "giữ sự tập trung", tick: false },
+  { en: "pressure /ˈpreʃə(r)/", vn: "áp lực", tick: false },
+  { en: "truly /ˈtruːli/", vn: "thực sự", tick: false },
+  { en: "avoid /əˈvɔɪd/", vn: "tránh", tick: false },
+  { en: "professional /prəˈfeʃənl/", vn: "chuyên nghiệp", tick: false },
+  { en: "lifestyle /ˈlaɪfstaɪl/", vn: "lối sống", tick: false },
+  { en: "balance /ˈbæləns/", vn: "sự cân bằng", tick: false },
+  { en: "critic /ˈkrɪtɪk/", vn: "nhà phê bình", tick: false },
+  { en: "warn /wɔːn/", vn: "cảnh báo", tick: false },
+  { en: "privilege /ˈprɪvəlɪdʒ/", vn: "đặc quyền", tick: false },
+  { en: "principle /ˈprɪnsəpl/", vn: "nguyên tắc", tick: false },
+  { en: "means /miːnz/", vn: "phương tiện, cách thức", tick: false },
+  { en: "necessity /nəˈsesəti/", vn: "sự cần thiết, nhu yếu phẩm", tick: false },
+  { en: "gain popularity /ɡeɪn ˌpɒpjuˈlærəti/", vn: "trở nên phổ biến", tick: false },
+  { en: "corporation /ˌkɔːpəˈreɪʃn/", vn: "tập đoàn", tick: false },
+  { en: "capitalise on /ˈkæpɪtəlaɪz ɒn/", vn: "tận dụng, lợi dụng", tick: false },
+  { en: "plain /pleɪn/", vn: "đơn giản, trơn", tick: false },
+  { en: "curate /kjʊˈreɪt/", vn: "chọn lọc, lưu trữ", tick: false },
+  { en: "restraint /rɪˈstreɪnt/", vn: "sự kiềm chế", tick: false },
+  { en: "conspicuous /kənˈspɪkjuəs/", vn: "dễ thấy, lộ liễu", tick: false },
+  { en: "contradiction /ˌkɒntrəˈdɪkʃn/", vn: "sự mâu thuẫn", tick: false },
+  { en: "resonate with /ˈrezəneɪt wɪð/", vn: "cộng hưởng, tạo sự đồng cảm", tick: false },
+  { en: "address /əˈdres/", vn: "giải quyết, nhắm đến", tick: false },
+  { en: "society /səˈsaɪəti/", vn: "xã hội", tick: false },
+  { en: "burnout /ˈbɜːnaʊt/", vn: "sự kiệt sức", tick: false },
+  { en: "detach from /dɪˈtætʃ frəm/", vn: "tách rời khỏi", tick: false },
+  { en: "illusion /ɪˈluːʒn/", vn: "ảo tưởng", tick: false },
+  { en: "guarantee /ˌɡærənˈtiː/", vn: "đảm bảo", tick: false },
+  { en: "fulfilment /fʊlˈfɪlmənt/", vn: "sự hoàn thành, toại nguyện", tick: false },
+  { en: "meaningful /ˈmiːnɪŋfl/", vn: "có ý nghĩa", tick: false },
+  { en: "merely /ˈmɪəli/", vn: "chỉ là, đơn thuần", tick: false },
+  { en: "passing /ˈpɑːsɪŋ/", vn: "thoáng qua", tick: false },
+  { en: "depend on /dɪˈpend ɒn/", vn: "phụ thuộc vào", tick: false },
+  { en: "sincerely /sɪnˈsɪəli/", vn: "một cách chân thành", tick: false },
+  { en: "survive /səˈvaɪv/", vn: "sống sót", tick: false },
+  { en: "endless /ˈendləs/", vn: "vô tận", tick: false }
+  ],
+
+  3: [
+{ en: "mark /mɑːk/", vn: "đánh dấu", tick: false },
+  { en: "significant /sɪɡˈnɪfɪkənt/", vn: "đáng kể, quan trọng", tick: false },
+  { en: "interior /ɪnˈtɪəriə(r)/", vn: "nội thất, bên trong", tick: false },
+  { en: "dominate /ˈdɒmɪneɪt/", vn: "thống trị, áp đảo", tick: false },
+  { en: "festive /ˈfestɪv/", vn: "thuộc về lễ hội", tick: false },
+  { en: "elaborate /ɪˈlæbərət/", vn: "tỉ mỉ, trau chuốt", tick: false },
+  { en: "dramatic /drəˈmætɪk/", vn: "kịch tính, gây ấn tượng mạnh", tick: false },
+  { en: "represent /ˌreprɪˈzent/", vn: "đại diện cho", tick: false },
+  { en: "minimalist /ˈmɪnɪməlɪst/", vn: "tối giản", tick: false },
+  { en: "characterize /ˈkærəktəraɪz/", vn: "đặc trưng hóa", tick: false },
+  { en: "element /ˈelɪmənt/", vn: "yếu tố", tick: false },
+  { en: "evoke /ɪˈvəʊk/", vn: "gợi lên", tick: false },
+  { en: "wonder /ˈwʌndə(r)/", vn: "sự kỳ diệu, kinh ngạc", tick: false },
+  { en: "unprecedented /ʌnˈpresɪdentɪd/", vn: "chưa từng có tiền lệ", tick: false },
+  { en: "residential /ˌrezɪˈdenʃl/", vn: "thuộc khu dân cư", tick: false },
+  { en: "inspire /ɪnˈspaɪə(r)/", vn: "truyền cảm hứng", tick: false },
+  { en: "draw inspiration from /drɔː ˌɪnspəˈreɪʃn frəm/", vn: "lấy cảm hứng từ", tick: false },
+  { en: "subtle /ˈsʌtl/", vn: "tinh tế, phảng phất", tick: false },
+  { en: "display /dɪˈspleɪ/", vn: "trưng bày, hiển thị", tick: false },
+  { en: "multiple /ˈmʌltɪpl/", vn: "nhiều, đa dạng", tick: false },
+  { en: "illuminate /ɪˈluːmɪneɪt/", vn: "chiếu sáng", tick: false },
+  { en: "reflect /rɪˈflekt/", vn: "phản chiếu, phản ánh", tick: false },
+  { en: "comfort /ˈkʌmfət/", vn: "sự thoải mái, an ủi", tick: false },
+  { en: "familiarity /fəˌmɪliˈærəti/", vn: "sự quen thuộc", tick: false },
+  { en: "uncertain /ʌnˈsɜːtn/", vn: "không chắc chắn", tick: false },
+  { en: "accessible /əkˈsesəbl/", vn: "có thể tiếp cận", tick: false },
+  { en: "regardless of /rɪˈɡɑːdləs əv/", vn: "bất kể, không quan tâm", tick: false },
+  { en: "budget /ˈbʌdʒɪt/", vn: "ngân sách", tick: false },
+  { en: "constraint /kənˈstreɪnt/", vn: "sự hạn chế, ràng buộc", tick: false },
+  { en: "social platform /ˈsəʊʃl ˈplætfɔːm/", vn: "nền tảng mạng xã hội", tick: false },
+  { en: "accelerate /əkˈseləreɪt/", vn: "tăng tốc, thúc đẩy", tick: false },
+  { en: "revolution /ˌrevəˈluːʃn/", vn: "cuộc cách mạng", tick: false },
+  { en: "viral /ˈvaɪrəl/", vn: "lan truyền nhanh", tick: false },
+  { en: "content /ˈkɒntent/", vn: "nội dung", tick: false },
+  { en: "endorsement /ɪnˈdɔːsmənt/", vn: "sự xác nhận, quảng cáo từ người nổi tiếng", tick: false },
+  { en: "phenomenon /fəˈnɒmɪnən/", vn: "hiện tượng", tick: false },
+  { en: "capture imagination /ˈkæptʃə(r) ɪˌmædʒɪˈneɪʃn/", vn: "thu hút trí tưởng tượng", tick: false },
+  { en: "corporate /ˈkɔːpərət/", vn: "thuộc về tập đoàn/doanh nghiệp", tick: false },
+  { en: "particularly /pəˈtɪkjələli/", vn: "đặc biệt là", tick: false },
+  { en: "authentic /ɔːˈθentɪk/", vn: "đích thực, xác thực", tick: false },
+  { en: "widespread /ˌwaɪdspred/", vn: "lan rộng, phổ biến", tick: false },
+  { en: "grassroots movement /ˈɡrɑːsruːts ˈmuːvmənt/", vn: "phong trào bình dân/từ gốc", tick: false },
+  { en: "collective /kəˈlektɪv/", vn: "tập thể, chung", tick: false },
+  { en: "contemporary /kənˈtemprəri/", vn: "đương đại, cùng thời", tick: false },
+  { en: "merchandise /ˈmɜːtʃəndaɪs/", vn: "hàng hóa", tick: false },
+  { en: "figure /ˈfɪɡə(r)/", vn: "nhân vật, số liệu", tick: false },
+  { en: "indicate /ˈɪndɪkeɪt/", vn: "chỉ ra, cho thấy", tick: false },
+  { en: "major corporation /ˈmeɪdʒə(r) ˌɔːpəˈreɪʃn/", vn: "tập đoàn lớn", tick: false },
+  { en: "rather than /ˈrɑːðə(r) ðən/", vn: "thay vì", tick: false },
+  { en: "adjust /əˈdʒʌst/", vn: "điều chỉnh", tick: false },
+  { en: "cozy /ˈkəʊzi/", vn: "ấm cúng", tick: false },
+  { en: "commercial /kəˈmɜːʃl/", vn: "thuộc về thương mại", tick: false },
+  { en: "genuine /ˈdʒenjuɪn/", vn: "thật, chân thật", tick: false },
+  { en: "crave /kreɪv/", vn: "khao khát", tick: false },
+  { en: "prioritize /praɪˈɒrətaɪz/", vn: "ưu tiên", tick: false },
+  { en: "sophistication /səˌfɪstɪˈkeɪʃn/", vn: "sự tinh tế, công phu", tick: false },
+  { en: "atmosphere /ˈætməsfɪə(r)/", vn: "bầu không khí", tick: false },
+  { en: "surge /sɜːdʒ/", vn: "sự trỗi dậy, tăng vọt", tick: false },
+  { en: "emerge /ɪˈmɜːdʒ/", vn: "nổi lên, xuất hiện", tick: false },
+  { en: "alarming /əˈlɑːmɪŋ/", vn: "đáng báo động", tick: false },
+  { en: "pressing /ˈpresɪŋ/", vn: "cấp bách", tick: false },
+  { en: "human trafficking /ˈhjuːmən ˈtræfɪkɪŋ/", vn: "nạn buôn người", tick: false },
+  { en: "humanitarian crisis /hjuːˌmænɪˈteəriən ˈkraɪsɪs/", vn: "khủng hoảng nhân đạo", tick: false },
+  { en: "ensnare /ɪnˈsneə(r)/", vn: "gài bẫy, giăng lưới", tick: false },
+  { en: "sophisticated crime /səˈfɪstɪkeɪtɪd kraɪm/", vn: "tội phạm tinh vi", tick: false },
+  { en: "criminal /ˈkrɪmɪnl/", vn: "tội phạm", tick: false },
+  { en: "cyber scam /ˈsaɪbə(r) skæm/", vn: "lừa đảo mạng", tick: false },
+  { en: "compound /kəmˈpaʊnd/", vn: "làm trầm trọng thêm, hợp chất", tick: false },
+  { en: "disguise /dɪsˈɡaɪz/", vn: "ngụy trang", tick: false },
+  { en: "legitimate employment /lɪˈdʒɪtɪmət ɪmˈplɔɪmənt/", vn: "việc làm hợp pháp", tick: false },
+  { en: "lucrative sector /ˈluːkrətɪv ˈsektə(r)/", vn: "lĩnh vực béo bở/sinh lời", tick: false },
+  { en: "systematic /ˌsɪstəˈmætɪk/", vn: "có hệ thống", tick: false },
+  { en: "exploit /ɪkˈsplɔɪt/", vn: "khai thác, bóc lột", tick: false },
+  { en: "exploitation /ˌeksplɔɪˈteɪʃn/", vn: "sự bóc lột", tick: false },
+  { en: "vulnerable /ˈvʌlnərəbl/", vn: "dễ bị tổn thương", tick: false },
+  { en: "vulnerability /ˌvʌlnərəˈbɪləti/", vn: "sự dễ bị tổn thương", tick: false },
+  { en: "prevalent /ˈprevələnt/", vn: "phổ biến, thịnh hành", tick: false },
+  { en: "rural province /ˈrʊərəl ˈprɒvɪns/", vn: "tỉnh lẻ, vùng nông thôn", tick: false },
+  { en: "victim /ˈvɪktɪm/", vn: "nạn nhân", tick: false },
+  { en: "predominantly /prɪˈdɒmɪnəntli/", vn: "chủ yếu là", tick: false },
+  { en: "upward mobility /ˈʌpwəd məʊˈbɪləti/", vn: "sự thăng tiến xã hội", tick: false },
+  { en: "labor force /ˈleɪbə(r) fɔːs/", vn: "lực lượng lao động", tick: false },
+  { en: "compel /kəmˈpel/", vn: "ép buộc", tick: false },
+  { en: "execute /ˈeksɪkjuːt/", vn: "thi hành, thực hiện", tick: false },
+  { en: "deception /dɪˈsepʃn/", vn: "sự lừa dối", tick: false },
+  { en: "trap /træp/", vn: "cái bẫy", tick: false },
+  { en: "fraud /frɔːd/", vn: "sự gian lận", tick: false },
+  { en: "fraudulent /ˈfrɔːdjələnt/", vn: "có tính gian lận", tick: false },
+  { en: "fabricate /ˈfæbrɪkeɪt/", vn: "bịa đặt, làm giả", tick: false },
+  { en: "scheme /skiːm/", vn: "kế hoạch, mưu đồ", tick: false },
+  { en: "endure /ɪnˈdjʊə(r)/", vn: "chịu đựng", tick: false },
+  { en: "brutal /ˈbruːtl/", vn: "tàn bạo", tick: false },
+  { en: "physical punishment /ˈfɪzɪkl ˈpʌnɪʃmənt/", vn: "hình phạt thân thể", tick: false },
+  { en: "severe /sɪˈvɪə(r)/", vn: "nghiêm trọng, khắt khe", tick: false },
+  { en: "resistance /rɪˈzɪstəns/", vn: "sự kháng cự", tick: false },
+  { en: "underperformance /ˌʌndəpəˈfɔːməns/", vn: "hiệu suất kém", tick: false },
+  { en: "pipeline /ˈpaɪplaɪn/", vn: "đường dây, tuyến đường", tick: false },
+  { en: "disturbing /dɪˈstɜːbɪŋ/", vn: "đáng lo ngại", tick: false },
+  { en: "efficiency /ɪˈfɪʃnsi/", vn: "hiệu quả", tick: false },
+  { en: "coordinate /kəʊˈɔːdɪneɪt/", vn: "phối hợp", tick: false },
+  { en: "recruitment /rɪˈkruːtmənt/", vn: "sự tuyển dụng", tick: false },
+  { en: "span /spæn/", vn: "trải dài qua", tick: false },
+  { en: "agent /ˈeɪdʒənt/", vn: "đại lý, môi giới", tick: false },
+  { en: "circulate /ˈsɜːkjəleɪt/", vn: "lưu thông, lan truyền", tick: false },
+  { en: "guarantee /ˌɡærənˈtiː/", vn: "đảm bảo", tick: false },
+  { en: "exceed /ɪkˈsiːd/", vn: "vượt quá", tick: false },
+  { en: "income /ˈɪnkʌm/", vn: "thu nhập", tick: false },
+  { en: "subsist on /səbˈsɪst ɒn/", vn: "sống dựa vào", tick: false },
+  { en: "wage /weɪdʒ/", vn: "tiền công", tick: false },
+  { en: "extend beyond /ɪkˈstend bɪˈjɒnd/", vn: "vượt ra ngoài giới hạn", tick: false },
+  { en: "initial /ɪˈnɪʃl/", vn: "ban đầu", tick: false },
+  { en: "orientation /ˌɔːriənˈteɪʃn/", vn: "sự định hướng", tick: false },
+  { en: "material /məˈtɪəriəl/", vn: "tài liệu, vật chất", tick: false },
+  { en: "testimonial /ˌtestɪˈməʊniəl/", vn: "lời chứng thực", tick: false },
+  { en: "border /ˈbɔːdə(r)/", vn: "biên giới", tick: false },
+  { en: "irregular /ɪˈreɡjələ(r)/", vn: "bất thường, trái quy tắc", tick: false },
+  { en: "comprehend /ˌkɒmprɪˈhend/", vn: "hiểu, lĩnh hội", tick: false },
+  { en: "grasp /ɡrɑːsp/", vn: "nắm bắt", tick: false },
+  { en: "authentic /ɔːˈθentɪk/", vn: "thật, xác thực", tick: false },
+  { en: "passport /ˈpɑːspɔːt/", vn: "hộ chiếu", tick: false },
+  { en: "confiscate /ˈkɒnfɪskeɪt/", vn: "tịch thu", tick: false },
+  { en: "escape /ɪˈskeɪp/", vn: "trốn thoát", tick: false },
+  { en: "concentrate /ˈkɒnsntreɪt/", vn: "tập trung", tick: false },
+  { en: "function /ˈfʌŋkʃn/", vn: "hoạt động, chức năng", tick: false },
+  { en: "slavery /ˈsleɪvəri/", vn: "sự nô lệ", tick: false },
+  { en: "conceal /kənˈsiːl/", vn: "che giấu", tick: false },
+  { en: "facade /fəˈsɑːd/", vn: "vẻ bề ngoài, mặt tiền", tick: false },
+  { en: "scale /skeɪl/", vn: "quy mô", tick: false },
+  { en: "facility /fəˈsɪləti/", vn: "cơ sở vật chất", tick: false },
+  { en: "surpass /səˈpɑːs/", vn: "vượt trội hơn", tick: false },
+  { en: "cryptocurrency /ˈkrɪptəʊkʌrənsi/", vn: "tiền điện tử", tick: false },
+  { en: "meticulous /məˈtɪkjələs/", vn: "tỉ mỉ, kỹ lưỡng", tick: false },
+  { en: "persona /pəˈsəʊnə/", vn: "nhân vật, hình tượng", tick: false },
+  { en: "failure /ˈfeɪljə(r)/", vn: "thất bại", tick: false },
+  { en: "quota /ˈkwəʊtə/", vn: "chỉ tiêu", tick: false },
+  { en: "result in /rɪˈzʌlt ɪn/", vn: "dẫn đến kết quả", tick: false },
+  { en: "deprivation /ˌdeprɪˈveɪʃn/", vn: "sự tước đoạt, thiếu thốn", tick: false },
+  { en: "torture /ˈtɔːtʃə(r)/", vn: "tra tấn", tick: false },
+  { en: "threat /θret/", vn: "mối đe dọa", tick: false },
+  { en: "remain /rɪˈmeɪn/", vn: "còn lại, duy trì", tick: false },
+  { en: "survivor /səˈvaɪvə(r)/", vn: "người sống sót", tick: false },
+  { en: "horrifying /ˈhɒrɪfaɪɪŋ/", vn: "kinh hoàng", tick: false },
+  { en: "assault /əˈsɔːlt/", vn: "hành hung, tấn công", tick: false },
+  { en: "consumption /kənˈsʌmpʃn/", vn: "sự tiêu thụ", tick: false },
+  { en: "productivity /ˌprɒdʌkˈtɪvəti/", vn: "năng suất", tick: false },
+  { en: "witness /ˈwɪtnəs/", vn: "chứng kiến", tick: false },
+  { en: "breakdown /ˈbreɪkdaʊn/", vn: "sự suy sụp, hỏng hóc", tick: false },
+  { en: "psychological /ˌsaɪkəˈlɒdʒɪkl/", vn: "thuộc tâm lý", tick: false },
+  { en: "injury /ˈɪndʒəri/", vn: "vết thương", tick: false },
+  { en: "unviable /ʌnˈvaɪəbl/", vn: "không khả thi", tick: false },
+  { en: "commercial /kəˈmɜːʃl/", vn: "thương mại", tick: false },
+  { en: "murder /ˈmɜːdə(r)/", vn: "vụ giết người", tick: false },
+  { en: "authority /ɔːˈθɒrəti/", vn: "chính quyền, nhà chức trách", tick: false },
+  { en: "extraordinary /ɪkˈstrɔːdnri/", vn: "phi thường, lạ thường", tick: false },
+  { en: "combat /ˈkɒmbæt/", vn: "chiến đấu, ngăn chặn", tick: false },
+  { en: "transnational /trænzˈnæʃənl/", vn: "xuyên quốc gia", tick: false },
+  { en: "enterprise /ˈentəpraɪz/", vn: "doanh nghiệp", tick: false },
+  { en: "bilateral agreement /ˌbaɪˈlætərəl əˈɡriːmənt/", vn: "thỏa thuận song phương", tick: false },
+  { en: "surveillance /sɜːˈveɪləns/", vn: "sự giám sát", tick: false },
+  { en: "continuous /kənˈtɪnjuəs/", vn: "liên tục", tick: false },
+  { en: "exponentially /ˌekspəˈnenʃəli/", vn: "theo cấp số nhân", tick: false },
+  { en: "adapt /əˈdæpt/", vn: "thích nghi, điều chỉnh", tick: false },
+  { en: "methodology /ˌmeθəˈdɒlədʒi/", vn: "phương pháp luận", tick: false },
+  { en: "corruption /kəˈrʌpʃn/", vn: "tham nhũng", tick: false },
+  { en: "law enforcement /lɔː ɪnˈfɔːsmənt/", vn: "lực lượng thực thi pháp luật", tick: false },
+  { en: "capitalise on /ˈkæpɪtəlaɪz ɒn/", vn: "tận dụng, khai thác", tick: false },
+  { en: "jurisdictional /ˌdʒʊərɪsˈdɪkʃənl/", vn: "thuộc thẩm quyền pháp lý", tick: false },
+  { en: "inherent /ɪnˈhɪərənt/", vn: "vốn có, cố hữu", tick: false },
+  { en: "tension /ˈtenʃn/", vn: "sự căng thẳng", tick: false },
+  { en: "diplomatic /ˌdɪpləˈmætɪk/", vn: "ngoại giao", tick: false },
+  { en: "periodically /ˌpɪəriˈɒdɪkli/", vn: "định kỳ", tick: false },
+  { en: "surface /ˈsɜːfɪs/", vn: "nổi lên mặt nước, bề mặt", tick: false },
+  { en: "rescue efforts /ˈreskjuː ˈefəts/", vn: "nỗ lực cứu hộ", tick: false },
+  { en: "encounter /ɪnˈkaʊntə(r)/", vn: "bắt gặp, chạm trán", tick: false },
+  { en: "officials /əˈfɪʃlz/", vn: "các quan chức", tick: false },
+  { en: "allegedly /əˈledʒɪdli/", vn: "được cho là", tick: false },
+  { en: "complicit (in/with) /kəmˈplɪsɪt/", vn: "đồng lõa", tick: false },
+  { en: "protective (towards/of) /prəˈtektɪv/", vn: "có tính bảo vệ, bao che", tick: false },
+  { en: "estimate /ˈestɪmeɪt/", vn: "ước tính", tick: false },
+  { en: "merely /ˈmɪəli/", vn: "chỉ là, đơn thuần", tick: false },
+  { en: "a fraction /ə ˈfrækʃn/", vn: "một phần nhỏ", tick: false },
+  { en: "abate /əˈbeɪt/", vn: "giảm bớt, làm dịu", tick: false },
+  { en: "unabated /ˌʌnəˈbeɪtɪd/", vn: "không giảm sút", tick: false },
+  { en: "sustain /səˈsteɪn/", vn: "duy trì, chống đỡ", tick: false },
+  { en: "profitability /ˌprɒfɪtəˈbɪləti/", vn: "khả năng sinh lời", tick: false },
+  { en: "poverty /ˈpɒvəti/", vn: "sự nghèo đói", tick: false }
+  ],
+
+  4: [
+  ],
+
+  5: [
+  ],
+
+  6: [
+  ],
+
+  7: [
+  ],
+
+  8: [
+  ],
+
+  9: [
+  ],
+
+  10: [
+  ],
+
+};
+
+
+let currList = 1, listCopy=[], index=0;
+
+let totalWords = 0;
+let knownCount = 0;
+
+/********** LOAD LIST **********/
+function loadList(){
+  currList = document.getElementById("wordList").value;
+  listCopy = [...data[currList]];
+  totalWords = listCopy.length;
+  knownCount = 0;
+
+  updateCounter();
+  renderWords();
+  index=-1;
+  nextWord();
+  loadExercises();
+}
+
+function updateCounter(){
+  document.getElementById("progressCounter").innerText =
+    `Đã biết ${knownCount} / ${totalWords}`;
+}
+
+
+document.getElementById("wordList").onchange = loadList;
+loadList();
+
+/********** RENDER & SORT **********/
+function renderWords(){
+  const box=document.getElementById("wordContainer");
+  box.innerHTML="";
+
+  let sorted=[...data[currList]].sort((a,b)=>b.tick - a.tick);
+
+  sorted.forEach(item=>{
+    let realIndex = data[currList].indexOf(item);
+    box.innerHTML+=`
+      <div class="word-row">
+        <span>${item.en}: ${item.vn}</span>
+        <input type="checkbox" ${item.tick?"checked":""} onclick="toggleTick(${realIndex})">
+      </div>`;
+  });
+}
+
+/********** TICK UPDATE **********/
+function toggleTick(realIndex){
+  data[currList][realIndex].tick = !data[currList][realIndex].tick;
+  renderWords();
+}
+
+/********** REVIEW **********/
+function nextWord(){
+  document.getElementById("answer").innerHTML="";
+  if(listCopy.length===0){
+    document.getElementById("vietWord").innerHTML="🎉 Bạn đã học xong hết!";
+    return;
+  }
+  index=Math.floor(Math.random()*listCopy.length);
+  document.getElementById("vietWord").innerHTML=listCopy[index].vn;
+}
+
+function know(){
+  firework();
+  knownCount++;
+  listCopy.splice(index,1);
+  updateCounter();
+  nextWord();
+}
+
+function dontKnow(){
+  document.getElementById("answer").innerHTML=listCopy[index].en;
+}
+
+/********** EXERCISES **********/
+function loadExercises(){
+  const box=document.getElementById("exercise");
+  box.innerHTML="";
+  exercises[currList].forEach((item,i)=>{
+    box.innerHTML+=`
+    <div style="margin:10px 0;">
+      ${i+1}. ${item.q}
+      <input id="ex${i}">
+      <button onclick="checkEx(${i})">Check</button>
+      <span id="res${i}" class="result"></span>
+    </div>`;
+  });
+}
+
+function checkEx(i){
+  const user = document.getElementById("ex"+i).value.trim().toLowerCase();
+  const ans = exercises[currList][i].a.toLowerCase();
+  const box = document.getElementById("res"+i);
+
+  if(user === ans) {
+    box.innerHTML = "✔ Correct";
+    box.style.color = "#28a745"; // chữ Correct màu xanh lá
+    firework(); // gọi pháo hoa
+  } else {
+    box.innerHTML = "✘ " + exercises[currList][i].a;
+    box.style.color = "#D02752"; // chữ sai màu đỏ
+  }
+}
+
+/********** FIREWORK **********/
+function firework(){
+  for(let i=0;i<25;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.setProperty("--x",(Math.random()-.5)*600+"px");
+    c.style.setProperty("--y",(Math.random()-.5)*600+"px");
+    c.style.backgroundColor=`hsl(${Math.random()*360},90%,60%)`;
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),900);
+  }
+}
+</script>
+
+</body>
+</html>
