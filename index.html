@@ -633,6 +633,7 @@ const data = {
   { en: "minimalist (adj/n) /ˈmɪnɪməlɪst/", vn: "tối giản", tick: false },
   { en: "evoke (v) /ɪˈvəʊk/", vn: "gợi lên", tick: false },
   { en: "wonder (n/v) /ˈwʌndə(r)/", vn: "sự kỳ diệu, kinh ngạc", tick: false },
+  { en: "precedent (n) /ˈpresɪdənt/", vn: "tiền lệ", tick: false },
   { en: "unprecedented (adj) /ʌnˈpresɪdentɪd/", vn: "chưa từng có tiền lệ", tick: false },
   { en: "draw inspiration from (v phr) /drɔː ˌɪnspəˈreɪʃn frəm/", vn: "lấy cảm hứng từ", tick: false },
   { en: "subtle (adj) /ˈsʌtl/", vn: "tinh tế, phảng phất", tick: false },
@@ -2450,7 +2451,7 @@ const data = {
   { en: "concerning (prep) /kənˈsɜːnɪŋ/", vn: "về việc, liên quan đến", tick: false },
   { en: "break down (phr v)", vn: "hỏng hóc, suy sụp, phân tích", tick: false },
   { en: "suddenly (adv) /ˈsʌdənli/", vn: "đột ngột", tick: false },
-  { en: "lose access to (v phr)", vn: "mất quyền truy cập vào", tick: false },
+  { en: "have/lose access to (v phr)", vn: "có/ mất quyền truy cập vào", tick: false },
   { en: "cyber threats (n phr)", vn: "mối đe dọa an ninh mạng", tick: false },
   { en: "gadget (n) /ˈɡædʒɪt/", vn: "thiết bị điện tử nhỏ", tick: false },
   { en: "outsource (v) /ˈaʊtsɔːs/", vn: "thuê ngoài", tick: false },
@@ -2630,7 +2631,6 @@ const data = {
   { en: "ramifications (n) /ˌræmɪfɪˈkeɪʃnz/", vn: "hệ lụy, kết quả phức tạp phát sinh", tick: false },
   { en: "ambiguous (adj) /æmˈbɪɡjuəs/", vn: "mơ hồ, nhập nhằng, đa nghĩa", tick: false },
   { en: "retire (v) /rɪˈtaɪə(r)/", vn: "nghỉ hưu", tick: false },
-  { en: "precedent (n) /ˈpresɪdənt/", vn: "tiền lệ", tick: false },
   { en: "judicious (adj) /dʒuˈdɪʃəs/", vn: "sáng suốt, khôn ngoan, có suy xét", tick: false },
   { en: "legislative (adj) /ˈledʒɪslətɪv/", vn: "thuộc về lập pháp", tick: false },
   { en: "ameliorate (v) /əˈmiːliəreɪt/", vn: "làm tốt hơn, cải thiện", tick: false },
@@ -3015,7 +3015,7 @@ const data = {
   { en: "alongside (prep/adv) /əˌlɒŋˈsaɪd/", vn: "bên cạnh, dọc theo", tick: false },
   { en: "sculpture (n) /ˈskʌlptʃə(r)/", vn: "tác phẩm điêu khắc, nghệ thuật điêu khắc", tick: false },
   { en: "demonstration (n) /ˌdemənˈstreɪʃn/", vn: "sự chứng minh, buổi thuyết minh làm mẫu, cuộc biểu tình", tick: false },
-  { en: "insight (n) /ˈɪnsaɪt/", vn: "cái nhìn sâu sắc, sự thấu hiểu bản chất", tick: false },
+  { en: "(gain) insight (into) (n) /ˈɪnsaɪt/", vn: "cái nhìn sâu sắc, sự thấu hiểu bản chất", tick: false },
   { en: "insightful (adj) /ˈɪnsaɪtfl/", vn: "sâu sắc, sáng suốt, giàu thông tin giá trị", tick: false },
   { en: "curator (n) /jʊəˈreɪtə(r)/", vn: "người giám tuyển, người quản lý (bảo tàng/triển lãm)", tick: false },
   { en: "artistic (adj) /ɑːˈtɪstɪk/", vn: "thuộc về nghệ thuật, có khiếu thẩm mỹ", tick: false },
@@ -3644,6 +3644,44 @@ const data = {
   { en: "disruptive (adj) /dɪsˈrʌptɪv/", vn: "mang tính đột phá hoàn toàn, gây gián đoạn/gây rối", tick: false },
   ],
   29: [
+{ en: "disperse (v) /dɪˈspɜːs/", vn: "phân tán, giải tán, xua tan (đám đông/khói bụi)", tick: false },
+  { en: "outstanding (adj) /aʊtˈstændɪŋ/", vn: "xuất sắc, nổi bật, còn tồn đọng chưa giải quyết (nợ nần/công việc)", tick: false },
+  { en: "attendee (n) /əˌtenˈdiː/", vn: "người tham dự (hội thảo, sự kiện, lớp học)", tick: false },
+  { en: "attendant (n) /əˈtendənt/", vn: "người phục vụ, tiếp viên, nhân viên trông giữ", tick: false },
+  { en: "seminar (n) /ˈsemɪnɑː(r)/", vn: "hội thảo chuyên đề, buổi nghiên cứu học tập chuyên sâu", tick: false },
+  { en: "administrator (n) /ədˈmɪnɪstreɪtə(r)/", vn: "nhà quản lý, người quản trị hệ thống/trường học", tick: false },
+  { en: "hold up (phr v)", vn: "làm trì hoãn, chống đỡ, chặn đường cướp, vẫn giữ vững phong độ/tình trạng tốt", tick: false },
+  { en: "minimal (adj) /ˈmɪnɪməl/", vn: "tối thiểu, ở mức rất nhỏ, tối giản", tick: false },
+  { en: "fleeting (adj) /ˈfliːtɪŋ/", vn: "thoáng qua, phù du, ngắn ngủi (về mặt thời gian)", tick: false },
+  { en: "indulge (v) /ɪnˈdʌldʒ/", vn: "nuông chiều (bản thân/ai), cho phép mình thưởng thức/đắm chìm vào cái gì", tick: false },
+  { en: "neat (adj) /niːt/", vn: "gọn gàng, ngăn nắp, khéo léo, nguyên chất (rượu không pha)", tick: false },
+  { en: "fold (v/n) /fəʊld/", vn: "gấp, gập (quần áo/giấy), vén (tay áo); nếp gấp (n)", tick: false },
+  { en: "outlast (v) /ˌaʊtˈlɑːst/", vn: "tồn tại lâu hơn, dùng được bền hơn cái gì", tick: false },
+  { en: "decompose (v) /ˌdiːkəmˈpəʊz/", vn: "phân hủy, mục nát (chất hữu cơ/rác thải thiên nhiên)", tick: false },
+  { en: "utility (n) /juːˈtɪləti/", vn: "tiện ích, dịch vụ công ích (điện, nước), tính hữu dụng", tick: false },
+  { en: "on a global scale (idiom)", vn: "trên quy mô toàn cầu, mang tầm cỡ thế giới", tick: false },
+  { en: "invisible to (adj phr)", vn: "vô hình đối với mắt thường/cái gì", tick: false },
+  { en: "virtue (n) /ˈvɜːtʃuː/", vn: "đức hạnh, đức tính tốt, ưu điểm/lợi ích của cái gì", tick: false },
+  { en: "confront (v) /kənˈfrʌnt/", vn: "đối mặt, chạm trán, đương đầu với (khó khăn/thách thức)", tick: false },
+  { en: "inseparable (from) (adj) /ɪnˈseprəbl/", vn: "không thể tách rời, gắn bó khăng khít với cái gì/ai", tick: false },
+  { en: "civilisation (n) /ˌsɪvəlaɪˈzeɪʃn/", vn: "nền văn minh (chính tả Mỹ là civilization)", tick: false },
+  { en: "durable (adj) /ˈdjʊərəbl/", vn: "bền bỉ, lâu hỏng, chịu được sự hao mòn theo thời gian", tick: false },
+  { en: "mass-produced (adj)", vn: "bị sản xuất hàng loạt (quy mô công nghiệp lớn)", tick: false },
+  { en: "warranty (n) /ˈwɒrənti/", vn: "giấy bảo hành, sự bảo hành sản phẩm", tick: false },
+  { en: "be worn out (adj phr)", vn: "bị sờn rách, hư hỏng do dùng quá nhiều, kiệt sức mệt lử", tick: false },
+  { en: "acquisition (n) /ˌækwɪˈzɪʃn/", vn: "sự tiếp thu (kiến thức/ngôn ngữ), sự mua lại/thu mua (tài sản/công ty)", tick: false },
+  { en: "meditation (n) /ˌmedɪˈteɪʃn/", vn: "sự thiền định, sự suy ngẫm sâu sắc", tick: false },
+  { en: "earn a living (v phr)", vn: "kiếm sống, làm lụng để trang trải cuộc sống", tick: false },
+  { en: "employ (v) /ɪmˈplɔɪ/", vn: "thuê mướn lao động, áp dụng/sử dụng (phương pháp/kỹ năng)", tick: false },
+  { en: "unpredictable (adj) /ˌʌnprɪˈdɪktəbl/", vn: "khó dự đoán trước, hay thay đổi thất thường", tick: false },
+  { en: "skill set (n phr)", vn: "tập hợp các kỹ năng chuyên môn của một cá nhân", tick: false },
+  { en: "erase (v) /ɪˈreɪz/", vn: "xóa bỏ, tẩy sạch (vết tích/kí ức/chữ viết)", tick: false },
+  { en: "knowledgeable (adj) /ˈnɒlɪdʒəbl/", vn: "thông thái, có am hiểu sâu rộng về một lĩnh vực", tick: false },
+  { en: "upgrade (v/n) /ˌʌpˈɡreɪd/", vn: "nâng cấp cải tiến (hệ thống/phần mềm/vị trí); sự nâng cấp (n)", tick: false },
+  ],
+
+  30: [
+
 { en: "forward-looking (adj)", vn: "tiên tiến, có tầm nhìn xa trông rộng, hướng về tương lai", tick: false },
   { en: "in relation to (idiom)", vn: "khi so sánh với, có liên quan tới vấn đề gì", tick: false },
   { en: "foundational (adj) /faʊnˈdeɪʃənl/", vn: "mang tính nền tảng, cơ bản cốt lõi", tick: false },
@@ -3677,7 +3715,7 @@ const data = {
 { en: "absurd (adj) /əbˈsɜːd/", vn: "vớ vẩn, ngớ ngẩn, phi lý đến mức nực cười", tick: false },
   { en: "boundary (n) /ˈbaʊndri/", vn: "ranh giới, biên giới, giới hạn hành vi giữa người với người", tick: false },
   ],
-  30: [
+  31: [
 { en: "graduate (v/n) /ˈɡrædʒuət/", vn: "tốt nghiệp (v); người đã tốt nghiệp (n)", tick: false },
   { en: "permit (v/n) /pəˈmɪt/", vn: "cho phép (v); giấy phép chính thức (n)", tick: false },
   { en: "permission (n) /pəˈmɪʃn/", vn: "sự cho phép, sự chấp thuận chính thức", tick: false },
@@ -3710,7 +3748,7 @@ const data = {
   { en: "take every chance (v phr)", vn: "nắm bắt mọi cơ hội có được", tick: false },
   { en: "reap the rewards of (v phr)", vn: "gặt hái được những thành quả, phần thưởng từ cái gì", tick: false },
   ],
-  31: [
+  32: [
 { en: "comprehension (n) /ˌkɒmprɪˈhenʃn/", vn: "sự thấu hiểu, năng lực đọc hiểu/nghe hiểu", tick: false },
   { en: "one-size-fits-all (adj)", vn: "vạn năng, rập khuôn, một giải pháp áp dụng cho mọi trường hợp", tick: false },
   { en: "boredom (n) /ˈbɔːdəm/", vn: "sự buồn chán, cảm giác tẻ nhạt", tick: false },
@@ -3744,10 +3782,6 @@ const data = {
   { en: "fresh (adj) /freʃ/", vn: "tươi mới, trong lành, mới lạ", tick: false },
   { en: "uptake (n) /ˈʌpteɪk/", vn: "sự hấp thụ (dưỡng chất), tốc độ hiểu/tiếp thu thông tin", tick: false },
   ],
-  32: [
-
-  ],
-
   33: [
 
   ],
